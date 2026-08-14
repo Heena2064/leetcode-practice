@@ -5,38 +5,36 @@
  */
 var isAnagram = function(s, t) {
 
-    if (s.length !== t.length) {
-        return false;
+    if (s.length !== t.length){
+        return false 
     }
-    freqS = {};
 
-    for (let i = 0; i < s.length ; i ++){
-        if(freqS[s[i]]===undefined){
-            freqS[s[i]]=1;
+
+    let freqS = {};
+
+    for (let ch of s){
+        if (freqS[ch]===undefined){
+            freqS[ch]=1;
         }else{
-            freqS[s[i]]++
+            freqS[ch]++
         }
     }
 
-    freqT ={};
+    let freqT = {};
 
-    for (let i = 0; i < t.length ; i ++){
-        if(freqT[t[i]]===undefined){
-            freqT[t[i]]=1;
+    for (let ch of t){
+        if (freqT[ch]===undefined){
+            freqT[ch] =1;
         }else{
-            freqT[t[i]]++
+            freqT[ch]++
         }
     }
 
-
-    for (let key in freqS) {
-        if (freqS[key]!==freqT[key]){
-            return false;
+    for(ch in freqS){
+        if (freqS [ch] !== freqT[ch]){
+            return false
         }
     }
-    return true;
-
-
-
     
+return true
 };
