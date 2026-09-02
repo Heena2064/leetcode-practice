@@ -3,38 +3,37 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-
-    if (s.length !== t.length){
-        return false 
+var isAnagram = function (s, t) {
+    if (s.length !== t.length) {
+        return false
     }
 
-
-    let freqS = {};
-
-    for (let ch of s){
-        if (freqS[ch]===undefined){
-            freqS[ch]=1;
-        }else{
-            freqS[ch]++
+    let freqS = {}
+    for (let i = 0; i < s.length; i++) {
+        if (freqS[s[i]] === undefined) {
+            freqS[s[i]] = 1
+        } else {
+            freqS[s[i]]++
         }
     }
 
-    let freqT = {};
 
-    for (let ch of t){
-        if (freqT[ch]===undefined){
-            freqT[ch] =1;
-        }else{
-            freqT[ch]++
+    let freqT = {}
+    for (let i = 0; i < t.length; i++) {
+        if (freqT[t[i]] === undefined) {
+            freqT[t[i]] = 1
+        } else {
+            freqT[t[i]]++
         }
-    }
 
-    for(ch in freqS){
-        if (freqS [ch] !== freqT[ch]){
+    }
+    for (let char in freqS) {
+        if (freqS[char] !== freqT[char]) {
             return false
         }
     }
-    
+
+
 return true
+
 };
