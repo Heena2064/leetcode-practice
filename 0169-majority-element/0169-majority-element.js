@@ -3,27 +3,28 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
+    let freq = {};
+    let n = nums.length;
+    let max = n / 2;
 
-    let count = {};
-
-    for (let i = 0; i < nums.length; i++) {
-
-        let num = nums[i]
-
-        if (count[num] !== undefined) {
-            count[num]++;
-
-        } else {
-            count[num] = 1
+    for(let i =0; i< n; i++){
+        
+        if(freq[nums[i]] === undefined){
+            freq[nums[i]]= 1
+        }else{
+            freq[nums[i]]++
         }
-
-
-        if (count[num] > nums.length / 2) {
+        
+    }
+    for(let num of nums){
+        if(freq[num]>=max){
             return num
         }
     }
+   
+}
+    
 
-
-
-
-};
+    
+    
+    
