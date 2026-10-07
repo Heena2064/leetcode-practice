@@ -4,32 +4,26 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    if(s.length !== t.length){
-        return false 
+    if(s.length!== t.length){
+        return false;
     }
 
-    let freqS = {}
-    for(let i =0; i <s.length; i++){
-        if(freqS[s[i]]===undefined){
-            freqS[s[i]]=1;
-        }else{
-            freqS[s[i]]++;
-        }
+    let freqS = new Map();
+    for (let char of s){
+        freqS.set(char, (freqS.get(char) || 0) + 1);
     }
 
-    let freqT = {}
-    for(let i =0;i<  t.length; i++){
-        if(freqT[t[i]]===undefined){
-            freqT[t[i]]=1;
-        }else{
-            freqT[t[i]]++;
-        }
+    let freqT =new Map();
+    for (let char of t){
+        freqT.set(char, (freqT.get(char) || 0) + 1);
     }
 
-    for(let char in freqS){
-        if(freqS[char]!== freqT[char]){
-            return false
+    for (let char of freqS.keys()){
+        if(freqS.get(char)!==freqT.get(char)){
+            return false;
         }
     }
-    return true
-    };
+    return true;
+
+    
+};
